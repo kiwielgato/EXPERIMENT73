@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Experiment 73 — Recovered</title>
+  <style>
+    :root{--bg:#0b0f14;--panel:#0f1720;--accent:#00e6ff;--danger:#ff3b3b;--muted:#98a0ad}
+    html,body{height:100%;margin:0;font-family:Inter,Segoe UI,Helvetica,Arial,sans-serif;background:linear-gradient(180deg,#08101a 0%,#07101a 60%);color:#e6eef6}
+    .wrap{max-width:1000px;margin:24px auto;padding:22px;background:radial-gradient(1000px 300px at 10% 0%, rgba(0,230,255,0.02), transparent), linear-gradient(180deg, rgba(255,255,255,0.02), transparent), var(--panel);border-radius:12px;box-shadow:0 10px 30px rgba(2,6,12,0.7);}
+    h1{font-family:monospace;font-weight:600;letter-spacing:1px;margin:0 0 6px}
+    p{color:var(--muted);line-height:1.5}
+    .meta{display:flex;gap:12px;flex-wrap:wrap;margin:10px 0 20px}
+    .chip{background:rgba(255,255,255,0.02);padding:8px 10px;border-radius:8px;font-size:13px;color:var(--muted);border:1px solid rgba(255,255,255,0.02)}
+    .files{background:#061018;padding:14px;border-radius:8px;margin:18px 0;border:1px dashed rgba(255,255,255,0.03)}
+    .file{display:flex;justify-content:space-between;padding:8px 6px;border-bottom:1px solid rgba(255,255,255,0.01)}
+    .file:last-child{border-bottom:0}
+    .btn{display:inline-block;background:linear-gradient(90deg,var(--accent),#66f5ff);color:#001022;padding:10px 14px;border-radius:8px;border:none;font-weight:700;cursor:pointer}
+    .spacer{height:18px}
+    footer{margin-top:26px;padding-top:12px;border-top:1px dashed rgba(255,255,255,0.03);display:flex;justify-content:space-between;align-items:center}
+    .reveal-wrap{display:flex;align-items:center;gap:12px}
+    .reveal-btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:8px;color:var(--muted);cursor:pointer}
+
+    /* clutter styles */
+    .clutter{max-height:420px;overflow:auto;padding:12px;border-radius:8px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border:1px solid rgba(255,255,255,0.02)}
+    .block{padding:12px;margin-bottom:10px;border-radius:6px;background:rgba(255,255,255,0.01);border:1px solid rgba(255,255,255,0.01)}
+    .muted-small{font-size:13px;color:var(--muted)}
+
+    /* hidden overlay */
+    .overlay{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(2,6,12,0.85);backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:opacity .3s}
+    .overlay.show{opacity:1;pointer-events:auto}
+    .card{background:linear-gradient(180deg,#071827,#021018);padding:28px;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.7);text-align:center;max-width:600px}
+    .secret{font-family:monospace;font-size:28px;letter-spacing:2px;color:var(--danger);opacity:0;transform:translateY(12px);transition:all .5s}
+    .secret.show{opacity:1;transform:translateY(0)}
+    .glitch{position:relative;display:inline-block}
+    .glitch::before,.glitch::after{content:attr(data-text);position:absolute;left:0;top:0;mix-blend-mode:screen;opacity:.8}
+    .glitch::before{color:#ff3b3b;transform:translate(2px,-2px)}
+    .glitch::after{color:#00e6ff;transform:translate(-2px,2px)}
+
+    /* small responsive */
+    @media(max-width:600px){.wrap{margin:16px;padding:18px}}
+
+    /* tiny hidden reveal (buried) */
+    .buried{position:relative}
+    .buried .tiny{position:relative;left:0;opacity:0.06;outline:1px solid rgba(255,255,255,0.01);padding:6px 8px;border-radius:6px;font-size:12px;background:transparent;color:rgba(255,255,255,0.06);cursor:pointer}
+    .buried .tiny:focus{opacity:1;color:var(--accent);outline:2px solid rgba(0,230,255,0.06)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Experiment 73 — Recovered</h1>
+    <div class="meta">
+      <div class="chip">Recovered: <strong>Oct 13, 2017</strong></div>
+      <div class="chip">Source: USB &quot;EX_73&quot;</div>
+      <div class="chip">Archive: <strong>Experiment73_Data.rar</strong> (247 MB)</div>
+    </div>
+
+    <p>Found a flash drive at a flea market with the number <strong>73</strong> scratched on it. When I copied the single folder over, there was only one archive inside. I didn't plan to upload this, but things started changing after I extracted it — files rewriting themselves, a shortcut appearing on the desktop, and a phrase repeating in the logs: <em>"The system remembers."</em></p>
+
+    <!-- Files list: remove log_02 and audio per request -->
+    <div class="files" aria-hidden="true">
+      <div class="file"><div>Recovered/Experiment73_Data.rar</div><div>247 MB</div></div>
+      <div class="file"><div>logs/log_01.txt</div><div>3 KB</div></div>
+    </div>
+
+    <p style="color:var(--muted)">This page contains fragments reconstructed from the archive. Be warned: some entries are corrupted or intentionally obfuscated.</p>
+
+    <!-- Cluttered area: mix of useful and useless content -->
+    <div class="clutter" aria-label="cluttered content">
+      <!-- Useful/Lore blocks -->
+      <div class="block">
+        <strong>Decrypted fragment (partial):</strong>
+        <pre class="muted-small">Aol zlfazl yltlticlza.  // Caesar +7  → The system remembers.</pre>
+      </div>
+
+      <div class="block">
+        <strong>System note:</strong>
+        <p class="muted-small">RECOVERED: cam05_recovered.mp4 (corrupt). Timestamp metadata: 2017-07-11T23:41:08Z</p>
+      </div>
+
+      <!-- Useless / distracting blocks -->
+      <div class="block">
+        <strong>Random dev notes</strong>
+        <p class="muted-small">TODO: replace favicon, fix CI pipeline, move css to tailwind, remove placeholder images.</p>
+      </div>
+
+      <div class="block">
+        <strong>Advertisement</strong>
+        <p class="muted-small">Check out retro keyboards on eBay — perfect for authentic typing sounds.</p>
+      </div>
+
+      <div class="block">
+        <strong>Unrelated log snippet</strong>
+        <p class="muted-small">[2011-04-12 09:23] backup completed. /usr/local/bin/cleanup.sh executed.</p>
+      </div>
+
+      <div class="block">
+        <strong>Contact</strong>
+        <p class="muted-small">If found by mistake, email: example[at]domain.tld</p>
+      </div>
+
+      <div class="block">
+        <strong>Hex dump (useless):</strong>
+        <p class="muted-small">3f 7a b2 00 ff 12 90 ae 00 00 00 01 73</p>
+      </div>
+
+      <!-- Deep-buried area: requires scrolling to reveal -->
+      <div style="height:18px"></div>
+      <div class="block">
+        <strong>Archive structure (partial)</strong>
+        <p class="muted-small">/Recovered/Experiment73_Data.rar<br>/Recovered/logs/log_01.txt<br>/Recovered/executables/DOOR_73.exe</p>
+      </div>
+
+      <div class="block">
+        <strong>Server configs (irrelevant)</strong>
+        <p class="muted-small">Nginx v1.10 — server_name localhost;</p>
+      </div>
+
+      <div class="block">
+        <strong>More garbage text</strong>
+        <p class="muted-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+      </div>
+
+      <div class="block">
+        <strong>NOTE:</strong>
+        <p class="muted-small">There may be hidden files that only appear after specific interactions with the system.</p>
+      </div>
+
+      <!-- Hidden tiny reveal button buried among clutter -->
+      <div class="block buried" style="margin-top:12px">
+        <p class="muted-small">You might need to look closer. Some things are small.</p>
+        <!-- buried tiny button: low contrast, small, hard to notice -->
+        <button id="tinyReveal" class="tiny" aria-hidden="false" title="Investigate deeper">Investigate deeper</button>
+      </div>
+
+      <!-- More useless content to force scrolling -->
+      <div class="block"><p class="muted-small">Changelog: v0.1.2 — removed debug logs. v0.1.1 — added basic ui. v0.1.0 — initial commit.</p></div>
+      <div class="block"><p class="muted-small">Random note: the coffee machine on floor 3 is broken.</p></div>
+      <div class="block"><p class="muted-small">Placeholder image: <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="placeholder"/></p></div>
+      <div class="block"><p class="muted-small">More logs... (scroll more)</p></div>
+    </div>
+
+    <div class="spacer"></div>
+
+    <p style="color:var(--muted)">This page is intentionally cluttered — the real lead is buried somewhere in the noise. Finding it requires attention.</p>
+
+    <footer>
+      <div class="reveal-wrap">
+        <!-- keep an obvious Open archive button but make it non-functional or a decoy -->
+        <button id="decoyOpen" class="btn">Open archive</button>
+      </div>
+      <div style="font-size:13px;color:var(--muted)">Built for EX73 ARG — host as <code>index.html</code></div>
+    </footer>
+  </div>
+
+  <!-- Hidden overlay + final reveal button modal -->
+  <div id="overlay" class="overlay" role="dialog" aria-hidden="true">
+    <div class="card">
+      <h3 style="margin:0 0 12px;font-family:monospace">Archive — fragment</h3>
+      <p style="color:var(--muted);margin:0 0 18px">Some decoded fragments and logs were reconstructed. This is one of them.</p>
+
+      <div id="secretText" class="secret glitch" data-text="FRIEND IS NOT.">FRIEND IS NOT.</div>
+
+      <div style="height:18px"></div>
+      <button id="closeBtn" class="btn" style="background:#111;border:1px solid rgba(255,255,255,0.04);color:var(--muted)">Close</button>
+    </div>
+  </div>
+
+  <script>
+    // Overlay controls
+    const overlay = document.getElementById('overlay');
+    const secret = document.getElementById('secretText');
+    const decoy = document.getElementById('decoyOpen');
+    const tiny = document.getElementById('tinyReveal');
+    const closeBtn = document.getElementById('closeBtn');
+
+    function showOverlay(){
+      overlay.classList.add('show');
+      overlay.setAttribute('aria-hidden','false');
+      secret.classList.remove('show');
+      secret.textContent = 'FRIEND IS NOT.';
+      secret.setAttribute('data-text','FRIEND IS NOT.');
+      setTimeout(()=>{
+        secret.style.opacity = '0';
+        setTimeout(()=>{secret.classList.add('show'); secret.style.opacity='1';},120);
+        // subtle flash to simulate glitch
+        document.body.style.transition = 'filter .25s';
+        document.body.style.filter = 'contrast(1.6) saturate(1.2)';
+        setTimeout(()=>{document.body.style.filter='';},1200);
+      },250);
+    }
+
+    // decoy does something else (fake download prompt) to mislead
+    decoy.addEventListener('click', function(){
+      alert('Archive appears corrupted. Try investigating deeper.');
+    });
+
+    // tiny buried button triggers the real reveal
+    tiny.addEventListener('click', function(e){
+      e.stopPropagation();
+      showOverlay();
+    });
+
+    closeBtn.addEventListener('click', ()=>{overlay.classList.remove('show');overlay.setAttribute('aria-hidden','true');});
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ overlay.classList.remove('show'); overlay.setAttribute('aria-hidden','true'); }});
+
+    // Accessibility: if someone focuses the tiny button it becomes visible
+    tiny.addEventListener('focus', function(){ tiny.style.opacity = 1; tiny.style.color = 'var(--accent)'; });
+  </script>
+
+  <!--
+    INSTRUCTIONS:
+    - Save this file as index.html and publish to GitHub Pages (branch gh-pages or main with pages enabled).
+    - The visible "Open archive" button is a decoy; the real reveal is the tiny "Investigate deeper" button buried in the clutter box and requires scrolling to find.
+    - I removed logs/log_02.txt and audio/audio_ex73_02.wav from the visible file list per request.
+  -->
+</body>
+</html>
